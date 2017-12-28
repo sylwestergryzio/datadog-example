@@ -2,6 +2,13 @@ group 'com.techarchnotes'
 version '1.0-SNAPSHOT'
 
 apply plugin: 'java'
+apply plugin: 'application'
+
+mainClassName = 'com.techarchnotes.DatadogExampleApp'
+
+run {
+    args = ['server', 'server.yml']
+}
 
 sourceCompatibility = 1.8
 def dropwizardVersion = "1.2.2"

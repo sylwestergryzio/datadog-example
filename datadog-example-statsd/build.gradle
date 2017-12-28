@@ -2,6 +2,9 @@ group 'com.techarchnotes'
 version '1.0-SNAPSHOT'
 
 apply plugin: 'java'
+apply plugin: 'application'
+
+mainClassName = 'com.techarchnotes.DatadogStatsDApp'
 
 sourceCompatibility = 1.8
 
