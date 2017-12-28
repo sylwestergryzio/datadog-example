@@ -1,0 +1,3 @@
+rootProject.name = 'datadog-example-statsd'
+include ':datadog-example-core'
+project(':datadog-example-core').projectDir = new File(settingsDir, '../datadog-example-core')

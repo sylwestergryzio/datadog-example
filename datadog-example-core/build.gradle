@@ -1,0 +1,18 @@
+group 'com.techarchnotes'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'java'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile group: 'com.google.guava', name: 'guava', version: '23.6-jre'
+
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+
+    compileOnly group: "org.projectlombok", name: "lombok", version: "1.16.16"
+}
