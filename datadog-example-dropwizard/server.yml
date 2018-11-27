@@ -1,0 +1,55 @@
+server:
+  applicationConnectors:
+    - type: http
+      port: 8080
+
+metrics:
+  frequency: 30 seconds                       # Default is 1 second.
+  reporters:
+    - type: datadog
+      prefix: dropwizard_example
+      host: techarchnotes.com
+      expansions:
+        - COUNT
+        - RATE_1_MINUTE
+        - RATE_5_MINUTE
+        - RATE_15_MINUTE
+        - MEAN
+        - MAX
+        - P95
+        - P99
+      includes:
+        - io.dropwizard.jetty.MutableServletContextHandler.active-dispatches
+        - io.dropwizard.jetty.MutableServletContextHandler.active-requests
+        - io.dropwizard.jetty.MutableServletContextHandler.active-suspended
+        - io.dropwizard.jetty.MutableServletContextHandler.2xx-responses
+        - io.dropwizard.jetty.MutableServletContextHandler.4xx-responses
+        - io.dropwizard.jetty.MutableServletContextHandler.5xx-responses
+        - io.dropwizard.jetty.MutableServletContextHandler.delete-requests
+        - io.dropwizard.jetty.MutableServletContextHandler.get-requests
+        - io.dropwizard.jetty.MutableServletContextHandler.post-requests
+        - io.dropwizard.jetty.MutableServletContextHandler.put-requests
+        - io.dropwizard.jetty.MutableServletContextHandler.requests
+        - org.eclipse.jetty.server.HttpConnectionFactory.8080.connections
+        - org.eclipse.jetty.server.HttpConnectionFactory.8081.connections
+        - jvm.gc.PS-MarkSweep.count
+        - jvm.gc.PS-MarkSweep.time
+        - jvm.gc.PS-Scavenge.count
+        - jvm.gc.PS-Scavenge.time
+        - jvm.memory.heap.max
+        - jvm.memory.heap.used
+        - jvm.memory.non-heap.max
+        - jvm.memory.non-heap.used
+        - jvm.memory.total.max
+        - jvm.memory.total.used
+        - jvm.threads.blocked.count
+        - jvm.threads.count
+        - jvm.threads.daemon.count
+        - jvm.threads.deadlock.count
+        - jvm.threads.new.count
+        - jvm.threads.runnable.count
+        - jvm.threads.waiting.count
+        - com.techarchnotes.resource.UserResource.logIn
+      transport:
+        type: http
+        apiKey: --change-to-your-api-key--
